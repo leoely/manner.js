@@ -1,0 +1,13 @@
+{
+  "name": "mode-server",
+  "version": "0.0.1",
+  "description": "Frontend server mode project.",
+  "main": "dist/index.js",
+  "repository": "https://github.com/leobrad/mode",
+  "author": "Leo Brad",
+  "license": "MIT",
+  "scripts": {
+    "build": "../../node_modules/.bin/babel src --out-dir dist",
+    "test": "../../node_modules/.bin/jest"
+  }
+}

@@ -1,2 +1,3 @@
 # mode
-frontend mode project
+
+Frontend mode project.

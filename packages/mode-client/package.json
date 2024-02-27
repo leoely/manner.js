@@ -1,0 +1,19 @@
+{
+  "name": "mode-client",
+  "version": "0.0.1",
+  "description": "Frontend client mode project.",
+  "main": "dist/index.js",
+  "repository": "https://github.com/leobrad/mode",
+  "author": "Leo Brad",
+  "license": "MIT",
+  "scripts": {
+    "dev": "../../node_modules/.bin/webpack serve --config webpack.config.dev.js",
+    "pro": "../../node_modules/.bin/webpack --config webpack.config.pro.js"
+  },
+  "dependencies": {
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.23.3"
+  }
+}
