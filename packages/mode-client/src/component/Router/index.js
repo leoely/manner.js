@@ -53,7 +53,7 @@ class Router extends WebApp {
         this.setState({ loading: true, });
         const { NotFound, } = this.props;
         if (NotFound === undefined) {
-          this.props.NotFound = await import('~/client/page/NotFound');
+          this.props.NotFound = await import('~/page/NotFound');
         }
         this.setState({ loading: false, });
         return <NotFound />;

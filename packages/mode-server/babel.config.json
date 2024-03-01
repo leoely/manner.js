@@ -7,8 +7,8 @@
           "node": "current"
         }
       },
+      "@babel/preset-react"
     ],
-    "@babel/preset-react"
   ],
   "plugins": [
     [

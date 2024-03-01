@@ -1,13 +1,16 @@
 {
   "name": "mode-server",
   "version": "0.0.1",
-  "description": "Frontend server mode project.",
+  "description": "Frontend mode server package.",
   "main": "dist/index.js",
   "repository": "https://github.com/leobrad/mode",
-  "author": "Leo Brad",
+  "author": "Leo Ely",
   "license": "MIT",
   "scripts": {
     "build": "../../node_modules/.bin/babel src --out-dir dist",
-    "test": "../../node_modules/.bin/jest"
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }
