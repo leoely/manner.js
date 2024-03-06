@@ -1,3 +1,3 @@
-# Mode.js
+# Manner.js
 
 Frontend mode project.
