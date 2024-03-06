@@ -1,2 +1,2 @@
-export * as CommonHttp from '~/server/client/class/CommonHttp';
-export * as parseOption from '~/server/lib/parseOption';
+export * as CommonHttp from '~/class/CommonHttp';
+export * as parseOption from '~/lib/parseOption';

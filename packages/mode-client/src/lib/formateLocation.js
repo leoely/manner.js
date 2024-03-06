@@ -1,5 +1,4 @@
-import HighLight from '~/class/HighLight';
-import LocationLexer from '~/class/lexer/LocationLexer';
+import { HighLight, LocationLexer, } from 'glow.js';
 import locationTemplate from '~/lib/template/locationTemplate';
 
 export default function formateLocation(version) {

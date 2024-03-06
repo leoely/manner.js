@@ -9,6 +9,11 @@ function getLists(list) {
 class CommonHttp {
   constructor(options) {
     this.time = new Date().getTime();
+    const { fonts, } = options;
+    if (options.fonts === undefined) {
+      options.fonts = [];
+    }
+    this.options = options;
     this.regexp = new RegExp(`\.(${getLists(options.fonts.concat(['html, ico', 'js']))})$`);
   }
 
@@ -31,7 +36,7 @@ class CommonHttp {
         });
         const {
           location,
-        } = options;
+        } = this.options;
         const response = await fetch(location + url, {
           method: 'POST',
           body,

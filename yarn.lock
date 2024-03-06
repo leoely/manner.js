@@ -2942,6 +2942,11 @@ globals@^11.1.0:
   resolved "https://registry.yarnpkg.com/globals/-/globals-11.12.0.tgz#ab8795338868a0babd8525758018c2a7eb95c42e"
   integrity sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==
 
+glow.js@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/glow.js/-/glow.js-0.0.3.tgz#d2436b1ef295952f240892c9d64c5566d8e2c8da"
+  integrity sha512-pkHKbIB64D+Oc2kakk53YunQ0U42QaBIAude9Ouzi9GPf0z8wwLYcMkmJwd248bo9peiEjSqvUHyXcKtoMxS/A==
+
 gopd@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/gopd/-/gopd-1.0.1.tgz#29ff76de69dac7489b7c0918a5788e56477c332c"
