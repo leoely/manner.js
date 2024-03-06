@@ -1,3 +1,3 @@
-# mode
+# Mode.js
 
 Frontend mode project.

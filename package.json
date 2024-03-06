@@ -1,10 +1,13 @@
 {
-  "name": "mode",
+  "name": "@leoely/mode.js",
   "version": "0.0.1",
   "description": "Frontend mode project.",
   "repository": "git@github.com:leobrad/mode.git",
-  "author": "Leo Brad",
+  "author": "Leo Ely",
   "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
     "@babel/cli": "^7.20.7",
     "@babel/core": "^7.20.7",
