@@ -5,9 +5,13 @@
   "repository": "git@github.com:leobrad/mode.git",
   "author": "Leo Ely",
   "license": "MIT",
+  "private": true,
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "build": "gulp build"
+  },
   "devDependencies": {
     "@babel/cli": "^7.20.7",
     "@babel/core": "^7.20.7",
