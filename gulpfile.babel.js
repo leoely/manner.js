@@ -1,10 +1,10 @@
 import { parallel, series, src, dest, } from 'gulp';
 import babel from 'gulp-babel';
 
-function buildScript() {
-  return src('scripts/**/*')
+function build() {
+  return src('src/**/*.js')
     .pipe(babel())
     .pipe(dest('dist'));
 }
 
-exports.build = buildScript;
+exports.build = build;
