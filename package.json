@@ -1,16 +1,15 @@
 {
   "name": "manner.js",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Frontend mode project.",
   "repository": "git@github.com:leobrad/mode.git",
   "author": "Leo Ely",
   "license": "MIT",
-  "private": true,
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
-    "build": "gulp build"
+    "build": "gulp build && node dist/index.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.20.7",

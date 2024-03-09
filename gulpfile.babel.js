@@ -1,16 +1,10 @@
 import { parallel, series, src, dest, } from 'gulp';
 import babel from 'gulp-babel';
 
-function buildServer() {
-  return src('packages/mode-server/dist')
+function buildScript() {
+  return src('scripts/**/*')
     .pipe(babel())
-    .pipe(dest('server'));
+    .pipe(dest('dist'));
 }
 
-function buildClient() {
-  return src('packages/mode-client/dist')
-    .pipe(babel())
-    .pipe(dest('client'));
-}
-
-exports.build = parallel(buildServer, buildClient);
+exports.build = buildScript;
