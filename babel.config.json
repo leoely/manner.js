@@ -7,8 +7,9 @@
           "node": "current"
         }
       },
-      "@babel/preset-react"
     ],
+    "@babel/preset-react",
+    "minify"
   ],
   "plugins": [
     [

@@ -17,6 +17,7 @@
     "autoprefixer": "^10.4.13",
     "babel-loader": "^9.1.2",
     "babel-plugin-root-import": "^6.6.0",
+    "babel-preset-minify": "^0.5.2",
     "css-loader": "^6.7.3",
     "file-loader": "^6.2.0",
     "gulp-babel": "^8.0.0",
