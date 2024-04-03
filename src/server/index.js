@@ -64,17 +64,6 @@ export function parseOption(...params) {
   }
   return ans;
 }
-export function filterNamespace(namespace) {
-  const ans = {};
-  if (typeof namespace === 'object') {
-    Object.keys(namespace).forEach((k) => {
-      if (k !== 'expires') {
-        ans[k] = namespace[k];
-      }
-    });
-  }
-  return ans;
-}
 
 export default function readCookie(cookie) {
   const cookies = {};
@@ -98,13 +87,7 @@ export default function readCookie(cookie) {
   return namespaces;
 }
 
-export function formateHttpDate(date) {
-  let [week, month, day, year, time, zone] = date.toString().split(' ');
-  zone = zone.split('+')[0];
-  return month + ', ' + day + ' ' + month + ' ' + year + ' ' + time + ' ' + zone;
-}
-
-export function formateHttpKey(key) {
+function formateHttpKey(key) {
   return key.split('-').map((v) => {
     return v.substring(0, 1).toUpperCase() + v.substring(1, v.length);
   }).join('-');
@@ -145,15 +128,17 @@ export class CommonHttp {
         const {
           location,
         } = this.options;
-        const response = await fetch(location + url, {
-          method: 'POST',
-          body,
-        });
-        for (const k of response.headers.keys()) {
-          res.setHeader(formateHttpKey(k), response.headers.get(k));
+        if (location !== undefined) {
+          const response = await fetch(location + url, {
+            method: 'POST',
+            body,
+          });
+          for (const k of response.headers.keys()) {
+            res.setHeader(formateHttpKey(k), response.headers.get(k));
+          }
+          const data = await response.text();
+          res.end(JSON.stringify(data));
         }
-        const data = await response.text();
-        res.end(JSON.stringify(data));
       }
     } catch (e) {
       const {
