@@ -12,7 +12,6 @@ function getLists(list) {
 
 export default class CommonHttp {
   constructor(options) {
-    this.time = new Date().getTime();
     const { fonts, } = options;
     if (options.fonts === undefined) {
       options.fonts = [];
