@@ -65,7 +65,7 @@ export function parseOption(...params) {
   return ans;
 }
 
-export default function readCookie(cookie) {
+export function readCookie(cookie) {
   const cookies = {};
   if (typeof cookie === 'string') {
     cookie.split(';').forEach((i) => {
