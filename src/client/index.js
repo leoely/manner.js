@@ -13,6 +13,16 @@ export function clearCookie(namespaces) {
   return namespaces;
 }
 
+export function filterNamespace(namespace) {
+  const ans = {};
+  Object.keys(namespace).forEach((k) => {
+    if (k !== 'expires') {
+      ans[k] = namespace[k];
+    }
+  });
+  return ans;
+}
+
 export function readCookie() {
   const cookies = {};
   document.cookie.split(';').forEach((i) => {
