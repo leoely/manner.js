@@ -1,1 +1,81 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.clearCookie=clearCookie,exports.filterNamespace=filterNamespace,exports.readCookie=readCookie,exports.setCookie=setCookie;function clearCookie(a){return Object.keys(a).forEach(b=>{void 0!==b.expires&&(Object.keys(b).forEach(a=>{"user"===b&&(document.cookie[b+"_"+a]=""),window.localStorage.removeItem(b+"_"+a)}),delete a[b])}),a}function filterNamespace(a){const b={};return Object.keys(a).forEach(c=>{"expires"!==c&&(b[c]=a[c])}),b}function readCookie(){const a={};document.cookie.split(";").forEach(b=>{const[c,d]=b.split("=");a[c.trim()]=d});const b={};Object.keys(a).forEach(c=>{const d=c.split("_");if(2===d.length){const[e,f]=d;b[e]===void 0&&(b[e]={}),b[e][f]=a[c]}});for(let a=0;a<window.localStorage.length;a+=1){const c=window.localStorage.key(a),d=c.split("_");if(2===d.length){const[a,e]=d;b[a]===void 0&&(b[a]={}),b[a][e]=window.localStorage.getItem(c)}}return clearCookie(b)}function setCookie(a){const b=a.headers.get("cookie");null!==b&&(""===b?document.cookie.split(";").forEach(a=>{const[b,c]=a.split("="),[d]=b.split("_");"user"===d&&(document.cookie=b+"="+c),window.localStorage.set(b,c)}):b.split(";").forEach(a=>{document.cookie=a}))}
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.clearCookie = clearCookie;
+exports.filterNamespace = filterNamespace;
+exports.readCookie = readCookie;
+exports.setCookie = setCookie;
+function clearCookie(namespaces) {
+  Object.keys(namespaces).forEach(n => {
+    if (n.expires !== undefined) {
+      Object.keys(n).forEach(k => {
+        if (n === 'user') {
+          document.cookie[n + '_' + k] = '';
+        }
+        window.localStorage.removeItem(n + '_' + k);
+      });
+      delete namespaces[n];
+    }
+  });
+  return namespaces;
+}
+function filterNamespace(namespace) {
+  const ans = {};
+  Object.keys(namespace).forEach(k => {
+    if (k !== 'expires') {
+      ans[k] = namespace[k];
+    }
+  });
+  return ans;
+}
+function readCookie() {
+  const cookies = {};
+  document.cookie.split(';').forEach(i => {
+    const [key, value] = i.split('=');
+    cookies[key.trim()] = value;
+  });
+  const namespaces = {};
+  Object.keys(cookies).forEach(k => {
+    const result = k.split('_');
+    if (result.length === 2) {
+      const [namespace, key] = result;
+      if (namespaces[namespace] === undefined) {
+        namespaces[namespace] = {};
+      }
+      namespaces[namespace][key] = cookies[k];
+    }
+  });
+  for (let i = 0; i < window.localStorage.length; i += 1) {
+    const k = window.localStorage.key(i);
+    const result = k.split('_');
+    if (result.length === 2) {
+      const [namespace, key] = result;
+      if (namespaces[namespace] === undefined) {
+        namespaces[namespace] = {};
+      }
+      namespaces[namespace][key] = window.localStorage.getItem(k);
+    }
+  }
+  return clearCookie(namespaces);
+}
+function setCookie(response) {
+  const cookie = response.headers.get('cookie');
+  if (cookie !== null) {
+    if (cookie === '') {
+      document.cookie.split(';').forEach(c => {
+        const [k, v] = c.split('=');
+        const [namespace] = k.split('_');
+        if (namespace === 'user') {
+          document.cookie = k + '=' + v;
+        }
+        window.localStorage.set(k, v);
+      });
+    } else {
+      cookie.split(';').forEach(c => {
+        document.cookie = c;
+      });
+    }
+  }
+}

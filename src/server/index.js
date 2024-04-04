@@ -1,3 +1,27 @@
+import path from 'path';
+import fs from 'fs';
+import zlib from 'zlib';
+import { pipeline, } from 'stream';
+import handlebars from 'handlebars';
+import { minify, } from 'html-minifier';
+
+function onError(err) {
+  if (err) {
+    console.error('An error occurred:', err);
+    process.exitCode = 1;
+  }
+}
+
+function parseDateString(dateString) {
+  return new Date(httpDate).getTime();
+}
+
+function formateHttpDate(date) {
+  let [week, month, day, year, time, zone] = date.toString().split(' ');
+  zone = zone.split('+')[0];
+  return month + ', ' + day + ' ' + month + ' ' + year + ' ' + time + ' ' + zone;
+}
+
 function isOption(string) {
   let ans = true;
   if (typeof string === 'string') {
@@ -93,9 +117,33 @@ function formateHttpKey(key) {
   }).join('-');
 }
 
+export default function getHtml(title, content) {
+  const template = handlebars.compile(`
+    <!doctype html>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8" />
+    <title>{{title}}</title>
+    <meta name="description" content="{{content}}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+    <main id="root"></main>
+    <script src="main.bundle.js"></script>
+    </body>
+    </html>
+  `);
+  return minify(
+    template({ title, content, }),
+    { collapseWhitespace: true, },
+  );
+}
+
 function getLists(list) {
   return list.join('|');
 }
+
+const time = new Date().getTime();
 
 export class CommonHttp {
   constructor(options) {
@@ -104,8 +152,66 @@ export class CommonHttp {
     if (options.fonts === undefined) {
       options.fonts = [];
     }
+    this.modify = {};
+    this.file = {};
+    this.raw = {};
+    this.compress = {};
     this.options = options;
     this.regexp = new RegExp(`\.(${getLists(options.fonts.concat(['html, ico', 'js']))})$`);
+  }
+
+  compressOutput(req, res, buffer, path) {
+    res.setHeader('Vary', 'Accept-Encoding');
+    let acceptEncoding = req.headers['accept-encoding'];
+    if (/gzip/.test(acceptEncoding)) {
+      res.writeHead(200, { 'Content-Encoding': 'gzip' });
+      this.dealCompress(zlib.gzipSync(buffer), path, res);
+    } else {
+      res.writeHead(200, {});
+      this.dealDirect(buffer, path, res);
+    }
+  }
+
+  cacheOutput(req, res, path, file, ms) {
+    let ifModifiedSince = req.headers['If-Modified-Since'];
+    if (ifModifiedSince === undefined) {
+      if (this.modify[path] === undefined) {
+        this.modify[path] = new Date(ms).toString();
+      }
+      if (this.file[path] === undefined) {
+        this.file[path] = file;
+      }
+      res.setHeader('Last-Modified', formateHttpDate(this.modify[path]));
+      this.compressOutput(req, res, this.file[path], path);
+    } else {
+      if (this.modify[path] === undefined) {
+        this.modify[path] = new Date(ms).toString();
+      }
+      if (parseDateString(new Date().toString()) < parseDateString(this.modify[path])) {
+        if (this.file[path] === undefined) {
+          this.file[path] = file;
+        }
+        res.setHeader('Last-Modified', formateHttpDate(this.modify[path]));
+        this.compressOutput(req, res, this.file[path], path);
+      } else {
+        res.writeHead(304);
+        res.end();
+      }
+    }
+  }
+
+  dealCompress(data, path, res) {
+    if (this.compress[path] === undefined) {
+      this.compress[path] = data;
+    }
+    res.end(this.compress[path]);
+  }
+
+  directDeal(data, path, res) {
+    if (this.raw[path] === undefined) {
+      this.compress[path] = data;
+    }
+    res.end(this.raw[path]);
   }
 
   async process(req, res) {
@@ -115,7 +221,8 @@ export class CommonHttp {
         const { time, } = this;
         res.end(time);
       } else if (this.regexp.test(url)) {
-        cacheOutput(req, res, restPath,
+        const restPath = url.substring(1, url.length);
+        this.cacheOutput(req, res, restPath,
           fs.readFileSync(path.resolve('static', restPath)),
           parseInt(fs.statSync(path.resolve('static', restPath)).mtimeMs),
         );
@@ -139,6 +246,12 @@ export class CommonHttp {
           const data = await response.text();
           res.end(JSON.stringify(data));
         }
+      } else {
+        if (this.html === undefined) {
+          const { title, content, } = this.options;
+          this.html = getHtml(title, content);
+        }
+        this.cacheOutput(req, res, '*html', this.html, time);
       }
     } catch (e) {
       const {

@@ -1,12 +1,13 @@
 {
   "name": "manner.js",
-  "version": "0.0.22",
+  "version": "0.0.30",
   "description": "Frontend mode project.",
   "repository": "git@github.com:leobrad/mode.git",
   "author": "Leo Ely",
   "license": "MIT",
   "scripts": {
-    "build": "gulp build && node dist/scripts/index.js"
+    "build": "gulp build && node dist/scripts/index.js",
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/cli": "^7.20.7",
@@ -33,6 +34,9 @@
   "dependencies": {
     "babel-plugin-root-import": "^6.6.0",
     "glow.js": "^0.0.3",
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "handlebars": "^4.7.8",
+    "html-minifier": "^4.0.0",
+    "node-fetch": "2"
   }
 }
