@@ -130,5 +130,5 @@ dist
 .pnp.*
 
 # Build directories
-client.js
-server.js
+client/
+server/
