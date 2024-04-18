@@ -113,8 +113,8 @@ export default class CommonHttp {
         }
       } else {
         if (this.html === undefined) {
-          const { title, content, } = this.options;
-          this.html = getHtml(title, content);
+          const { title, content, icon, } = this.options;
+          this.html = getHtml(title, content, icon);
         }
         this.cacheOutput(req, res, '*html', this.html, this.time);
       }

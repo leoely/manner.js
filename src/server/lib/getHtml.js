@@ -19,7 +19,7 @@ export default function getHtml(title, content) {
     </html>
   `);
   return minify(
-    template({ title, content, }),
+    template({ title, content, icon, }),
     { collapseWhitespace: true, },
   );
 }
