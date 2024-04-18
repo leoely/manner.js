@@ -1,7 +1,7 @@
 import handlebars from 'handlebars';
 import { minify, } from 'html-minifier';
 
-export default function getHtml(title, content) {
+export default function getHtml(title, content, icon) {
   const template = handlebars.compile(`
     <!doctype html>
     <html lang="en">
