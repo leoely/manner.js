@@ -22,7 +22,7 @@ export default class CommonHttp {
     this.raw = {};
     this.compress = {};
     this.options = options;
-    this.regexp = new RegExp(`\.(${getLists(options.fonts.concat(['html, ico', 'js']))})$`);
+    this.regexp = new RegExp(`\.(${getLists(options.fonts.concat(['ico', 'js', 'png', 'jpg']))})$`);
   }
 
   compressOutput(req, res, buffer, path) {
