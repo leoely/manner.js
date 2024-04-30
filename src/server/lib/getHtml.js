@@ -10,7 +10,9 @@ export default function getHtml(title, content, icon) {
     <title>{{title}}</title>
     <meta name="description" content="{{content}}" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {{#if icon}}
     <link rel="icon" type="image/png" size="16x16" href="{{icon}}" />
+    {{/if}}
     </head>
     <body>
     <main id="root"></main>
