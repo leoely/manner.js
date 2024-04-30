@@ -84,7 +84,7 @@ export default class CommonHttp {
       const { url, } = req;
       if (url === '/update/time') {
         const { time, } = this;
-        res.end(time);
+        res.end(String(time));
       } else if (this.regexp.test(url)) {
         const restPath = url.substring(1, url.length);
         this.cacheOutput(req, res, restPath,
