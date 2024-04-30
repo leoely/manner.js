@@ -12,6 +12,8 @@ export default function getHtml(title, content, icon) {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     {{#if icon}}
     <link rel="icon" type="image/png" size="16x16" href="{{icon}}" />
+    {{else}}
+    <link rel="shortcut icon" href="http://www.example.com/my_empty_resource" />
     {{/if}}
     </head>
     <body>

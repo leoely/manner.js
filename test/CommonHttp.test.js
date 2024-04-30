@@ -18,5 +18,5 @@ beforeAll(() => {
 test('[class] CommonHttp', async () => {
   const response = await fetch('http://localhost');
   const body = await response.text();
-  expect(JSON.stringify(body)).toMatch('\"<!doctype html><html lang=\\\"en\\\"><head><meta charset=\\\"utf-8\\\"><title>Test</title><meta name=\\\"description\\\" content=\\\"Test\\\"><meta name=\\\"viewport\\\" content=\\\"width=device-width,initial-scale=1\\\"></head><body><main id=\\\"root\\\"></main><script src=\\\"main.bundle.js\\\"></script></body></html>\"');
+  expect(JSON.stringify(body)).toMatch('\"<!doctype html><html lang=\\\"en\\\"><head><meta charset=\\\"utf-8\\\"><title>Test</title><meta name=\\\"description\\\" content=\\\"Test\\\"><meta name=\\\"viewport\\\" content=\\\"width=device-width,initial-scale=1\\\"><link rel=\\\"shortcut icon\\\" href=\\\"http://www.example.com/my_empty_resource\\\"></head><body><main id=\\\"root\\\"></main><script src=\\\"main.bundle.js\\\"></script></body></html>\"');
 });
