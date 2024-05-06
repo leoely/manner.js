@@ -33,7 +33,7 @@ function transformOption(value) {
   return ans.join('');
 }
 
-export function parseOption(...params) {
+export default function parseOption(...params) {
   const ans = {};
   for (let i = 0; i < params.length; i += 1) {
     const param = params[i];
