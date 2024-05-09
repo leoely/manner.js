@@ -4,13 +4,13 @@ import fetch from 'node-fetch';
 import { CommonHttp, }from '~/server';
 
 beforeAll(() => {
+  const commonHttp = new CommonHttp({
+    title: 'Test',
+    content: 'Test',
+    fonts: ['ttf'],
+    develope: true,
+  });
   http.createServer(async (req, res) => {
-    const commonHttp = new CommonHttp({
-      title: 'Test',
-      content: 'Test',
-      fonts: ['ttf'],
-      develope: true,
-    });
     await commonHttp.process(req, res);
   }).listen(80);
 });

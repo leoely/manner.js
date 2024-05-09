@@ -1,5 +1,5 @@
 import { describe, expect, test, } from '@jest/globals';
-import { parseOption, } from '~/server/lib/parseOption';
+import parseOption from '~/server/lib/parseOption';
 
 describe('[lib] parseOption', () => {
   test('command line option should parse correct.', () => {
