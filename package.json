@@ -1,12 +1,14 @@
 {
   "name": "manner.js",
-  "version": "0.0.43",
+  "version": "0.0.48",
   "description": "Frontend mode project.",
   "repository": "git@github.com:leobrad/mode.git",
   "author": "Leo Ely",
   "license": "MIT",
   "scripts": {
-    "build": "gulp build && node dist/scripts/index.js",
+    "run": "gulp build && node dist/index.js",
+    "build": "gulp build && gulp copy",
+    "clean": "rm -rf client server",
     "test": "jest"
   },
   "devDependencies": {
@@ -15,28 +17,12 @@
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.23.3",
     "@babel/register": "^7.22.5",
-    "autoprefixer": "^10.4.13",
-    "babel-loader": "^9.1.2",
-    "babel-plugin-root-import": "^6.6.0",
-    "babel-preset-minify": "^0.5.2",
-    "css-loader": "^6.7.3",
-    "file-loader": "^6.2.0",
     "gulp-babel": "^8.0.0",
-    "html-webpack-plugin": "^5.5.0",
-    "jest": "^29.6.1",
-    "postcss-loader": "^7.0.2",
-    "style-loader": "^3.3.1",
-    "sugarss": "^4.0.1",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.11.1"
+    "jest": "^29.7.0"
   },
   "dependencies": {
     "babel-plugin-root-import": "^6.6.0",
-    "glow.js": "^0.0.3",
     "gulp": "^4.0.2",
-    "handlebars": "^4.7.8",
-    "html-minifier": "^4.0.0",
     "node-fetch": "2"
   }
 }

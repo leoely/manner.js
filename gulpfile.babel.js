@@ -7,4 +7,10 @@ function build() {
     .pipe(dest('dist'));
 }
 
+function copy() {
+  return src('dist/**/*')
+    .pipe(dest('./'));
+}
+
+exports.copy = copy;
 exports.build = build;
