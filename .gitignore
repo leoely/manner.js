@@ -132,3 +132,6 @@ dist
 # Build directories
 client/
 server/
+
+# Source directorys
+!src/
