@@ -91,13 +91,14 @@ class MultiFetch {
     }
   }
 
-  async fetch(path, options, ip) {
+  async fetch(path, options, expandOptions = {}) {
     if (typeof path !== 'string') {
       throw new Error('[Error] The path parameter path should be of string type.');
     }
     if (typeof options !== 'object') {
       throw new Error('[Error] The options parameter should be a object type.');
     }
+    const { ip, } = expandOptions;
     if (ip !== undefined) {
       const { interval, } = this;
       if (net.isIPv4(ip)) {

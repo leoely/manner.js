@@ -73,7 +73,9 @@ describe('[class] MultiFetch;', () => {
     ], 1000);
     multiFetch.fetch('/update/message', {
       method: 'POST',
-    }, '127.0.0.1').then(async (response) => {
+    }, {
+      ip: '127.0.0.1',
+    }).then(async (response) => {
       const message = await response.json();
       const time = new Date().getTime();
       expect(message.startUpTime).toBeLessThan(time);
@@ -81,7 +83,9 @@ describe('[class] MultiFetch;', () => {
     for (let i = 0; i < 20; i += 1) {
       multiFetch.fetch('/update/message', {
         method: 'POST',
-      }, '127.0.0.1')
+      }, {
+        ip: '127.0.0.1',
+      })
         .catch((error) => {
           expect(error.message).toMatch('[Error] The current IP address is blocked because it is accessed too frequently.');
         })
@@ -96,7 +100,9 @@ describe('[class] MultiFetch;', () => {
     });
     multiFetch.fetch('/update/message', {
       method: 'POST',
-    }, '127.0.0.1').then(async (response) => {
+    }, {
+      ip: '127.0.0.1',
+    }).then(async (response) => {
       const message = await response.json();
       const time = new Date().getTime();
       expect(message.startUpTime).toBeLessThan(time);
@@ -108,7 +114,9 @@ describe('[class] MultiFetch;', () => {
     });
     multiFetch.fetch('/update/message', {
       method: 'POST',
-    }, '127.0.0.1')
+    }, {
+      ip: '127.0.0.1',
+    })
       .catch((error) => {
         expect(error.message).toMatch('[Error] The current IP address is blocked because it is accessed too frequently.');
       })
