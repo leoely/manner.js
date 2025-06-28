@@ -1,6 +1,6 @@
 {
   "name": "manner.js",
-  "version": "1.0.13",
+  "version": "1.0.17",
   "description": "Frontend mode project.",
   "repository": "git@github.com:leobrad/mode.git",
   "author": "Leo Ely",
@@ -9,7 +9,7 @@
     "run": "gulp build && node dist/index.js",
     "build": "gulp build && gulp copy",
     "clean": "rm -rf client server",
-    "test": "jest"
+    "test": "jest --detectOpenHandles"
   },
   "devDependencies": {
     "@babel/cli": "^7.20.7",

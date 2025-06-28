@@ -135,3 +135,9 @@ server/
 
 # Source directorys
 !src/
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
