@@ -1,0 +1,1 @@
+function errorHandle(t){if("function"!=typeof t)throw new Error("[Error] The parameter request listener needs to be of function type.");return async(e,r)=>{try{await t(e,r)}catch(e){r.writeHead(500),r.end()}}}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=errorHandle;

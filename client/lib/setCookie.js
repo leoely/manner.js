@@ -1,0 +1,1 @@
+function setCookie(e){e=e.headers.get("cookie");null!==e&&(""===e?document.cookie.split(";").forEach(e=>{var[e,o]=e.split("="),[t]=e.split("_");"user"===t&&(document.cookie=e+"="+o),window.localStorage.set(e,o)}):e.split(";").forEach(e=>{document.cookie=e}))}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=setCookie;

@@ -1,0 +1,1 @@
+function formatHttpDate(t){let[e,r,o,a,p,l]=new Date(t).toString().split(" ");return e+", "+o+" "+r+" "+a+" "+p+" "+(l=l.split("+")[0])}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=formatHttpDate;

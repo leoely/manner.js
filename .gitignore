@@ -130,8 +130,8 @@ dist
 .pnp.*
 
 # Build directories
-client/
-server/
+./client/
+./server/
 
 # Source directorys
 !src/

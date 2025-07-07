@@ -1,26 +1,26 @@
 export default function isIntranetIpv4Address(address) {
   let total = 0;
-  let sectionValue = 0;;
-  let sectionCount = 0;
+  let value = 0;;
+  let count = 0;
   for (let i = 0; i <= address.length; i += 1) {
     const char = address.charAt(i);
     switch (char) {
       case '':
       case '.':
-        sectionCount += 1;
+        count += 1;
         total *= 256;
-        total += sectionValue;
-        sectionValue = 0;
+        total += value;
+        value = 0;
         break;
       default:
         if (!(char >= '0' && char <= '9')) {
           return false;
         }
-        sectionValue *= 10;
-        sectionValue += parseInt(char);
+        value *= 10;
+        value += parseInt(char);
     }
   }
-  if (sectionCount !== 4) {
+  if (count !== 4) {
     return false;
   }
   let ans = false;
