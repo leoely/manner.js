@@ -1,1 +1,0 @@
-function filterNamespace(t){let r={};return Object.keys(t).forEach(e=>{"expires"!==e&&(r[e]=t[e])}),r}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=filterNamespace;

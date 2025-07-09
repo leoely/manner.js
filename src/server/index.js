@@ -9,5 +9,6 @@ export { default as isIpv6Address, } from '~/server/lib/isIpv6Address';
 export { default as getOwnIpAddresses, } from '~/server/lib/getOwnIpAddresses';
 export { default as wrapIpv6, } from '~/server/lib/wrapIpv6';
 export { default as errorHandle, } from '~/server/lib/errorHandle';
+export { default as disconnectHandle, } from '~/server/lib/disconnectHandle';
 export * as byteArray from '~/server/lib/byteArray';
 export * as nonZeroByteArray from '~/server/lib/nonZeroByteArray';
