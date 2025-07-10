@@ -1,7 +1,7 @@
 import Blocks from '~/server/class/Blocks';
 
 describe('[class] Blocks;', () => {
-  test('Block should be able to intercept request based on ip.', async () => {
+  test('Blocks should be able to intercept request based on ip.', async () => {
     const blocks = new Blocks(1000);
     expect(blocks.examine('127.0.0.1')).toBe(true);
     expect(blocks.examine('127.0.0.1')).toBe(false);
@@ -22,7 +22,7 @@ describe('[class] Blocks;', () => {
     expect(blocks.examine('127.0.0.1')).toBe(false);
   });
 
-  test('Block should be able to support ipv6 addresses.', async () => {
+  test('Blocks should be able to support ipv6 addresses.', async () => {
     const blocks = new Blocks(1000);
     expect(blocks.examine('::1')).toBe(true);
     expect(blocks.examine('::1')).toBe(false);

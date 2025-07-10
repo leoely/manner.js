@@ -39,6 +39,12 @@ class MultiFetch {
     if (typeof options !== 'object') {
       throw new Error('[Error] The options parameter should be a object type.');
     }
+    const { req, } = expandOptions;
+    if (req !== undefined) {
+      if (!(req instanceof http.ClientRequest)) {
+        throw new Error('[Error] Need to pass http request objec.');
+      }
+    }
     const { bases, } = this;
     if (this.index < bases.length - 1) {
       this.index += 1;

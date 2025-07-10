@@ -1,0 +1,1 @@
+async function disconnectHandle(e,o){if("boolean"!=typeof e)throw new Error("[Error] The parameter whether to connect needs to be of booean type.");if("function"!=typeof o)throw new Error("[Error] Parameter handling should be function type.");!1===e&&await o()}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=disconnectHandle;

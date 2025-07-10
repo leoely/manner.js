@@ -1,0 +1,1 @@
+Object.defineProperty(exports,"__esModule",{value:!0}),exports.fromInt=fromInt,exports.toInt=toInt;let size=256n;function fromInt(n){var e=[];if((n=BigInt(n))>size-2n)for(;n>size-1n;){var t=n%(size-1n);e.push(Number(t+1n)),n/=size-1n}return e.push(Number(n+1n)),e}function toInt(e){let t=0n;var{}=e;for(let n=0n;n<e.length;n+=1n)t+=(BigInt(e[n])-1n)*(size-1n)**n;return t}

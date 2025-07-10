@@ -1,5 +1,6 @@
 export { default as MultiFetch, } from '~/server/class/MultiFetch';
 export { default as Blocks, } from '~/server/class/Blocks';
+export { default as Prevents, } from '~/server/class/Prevents';
 export { default as readCookie, } from '~/server/lib/readCookie';
 export { default as formatHttpKey, } from '~/server/lib/formatHttpKey';
 export { default as formatHttpDate, } from '~/server/lib/formatHttpDate';

@@ -20,7 +20,7 @@ beforeAll(() => {
   server4 = http.createServer(dealHttp).listen(8004);
 });
 
-async function getServerClosePromise(server) {
+function getServerClosePromise(server) {
   return new Promise((resolve, reject) => {
     server.close(() => {
       resolve();
