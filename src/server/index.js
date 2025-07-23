@@ -11,5 +11,8 @@ export { default as getOwnIpAddresses, } from '~/server/lib/getOwnIpAddresses';
 export { default as wrapIpv6, } from '~/server/lib/wrapIpv6';
 export { default as errorHandle, } from '~/server/lib/errorHandle';
 export { default as disconnectHandle, } from '~/server/lib/disconnectHandle';
+export { default as appendToLog, } from '~/server/lib/appendToLog';
+export { default as getDateString, } from '~/server/lib/getDateString';
+export { default as getGTMNowString, } from '~/server/lib/getGTMNowString';
 export * as byteArray from '~/server/lib/byteArray';
 export * as nonZeroByteArray from '~/server/lib/nonZeroByteArray';

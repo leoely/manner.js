@@ -1,1 +1,0 @@
-function clearCookie(e){return Object.keys(e).forEach(o=>{void 0!==o.expires&&(Object.keys(o).forEach(e=>{"user"===o&&(document.cookie[o+"_"+e]=""),window.localStorage.removeItem(o+"_"+e)}),delete e[o])}),e}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=clearCookie;

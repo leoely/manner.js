@@ -1,1 +1,0 @@
-function formatHttpKey(t){return t.split("-").map(t=>t.substring(0,1).toUpperCase()+t.substring(1,t.length)).join("-")}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=formatHttpKey;

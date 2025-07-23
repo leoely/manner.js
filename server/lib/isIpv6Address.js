@@ -1,1 +1,0 @@
-function isIpv6Address(t){let r=0,s=!0;for(let e=0;e<=t.length;e+=1){var a=t.charAt(e);switch(a){case"":case":":r+=1;break;default:"0"<=a&&a<="9"||"a"<=a&&a<="f"||(s=!1)}}return s=8!==r?!1:s}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=isIpv6Address;
