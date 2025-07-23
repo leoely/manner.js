@@ -76,7 +76,6 @@ class Prevents extends Tackles {
     if (req instanceof http.ClientRequest) {
       throw new Error('[Error] The parameter req should be the clientRequest type.');
     }
-    const { interval, } = this;
     if (net.isIPv4(ip)) {
       const { ipv4Router, } = this;
       return this.inspectStaticFile(ip, req, ipv4Router);

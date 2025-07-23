@@ -30,7 +30,6 @@ afterAll(async () => {
   await getServerClosePromise(server1);
 });
 
-
 describe('[class] Prevents;', () => {
   test('The prevents should be able to prevent frequent requests.', async () => {
     const response1 = await fetch('http://localhost:8007');

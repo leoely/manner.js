@@ -1,8 +1,8 @@
 {
   "name": "manner.js",
-  "version": "1.0.30",
-  "description": "Frontend mode project.",
-  "repository": "git@github.com:leobrad/mode.git",
+  "version": "1.0.39",
+  "description": "Frontend manner project.",
+  "repository": "git@github.com:leoely/manner.js.git",
   "author": "Leo Ely",
   "license": "MIT",
   "scripts": {

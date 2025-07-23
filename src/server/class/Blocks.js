@@ -49,7 +49,6 @@ class Blocks extends Tackles {
     if (typeof ip !== 'string') {
       throw new Error('[Error] The parameter ip should be of string type.');
     }
-    const { interval, } = this;
     if (net.isIPv4(ip)) {
       const { ipv4Router, } = this;
       return this.examineIpAddress(ip, ipv4Router);
