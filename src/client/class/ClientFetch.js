@@ -1,9 +1,28 @@
 class ClientFetch {
-  constructor() {
+  constructor(options) {
+    const defaultOptions = {
+      timeout: 9000,
+    };
+    this.options = Object.assign(defaultOptions, options);
+    this.dealOptions();
     this.filters = {};
     this.hasTimeout = true;
     this.idx = 0;
     this.abortControllers = [];
+  }
+
+  dealOptions() {
+    const {
+      options: {
+        timeout,
+      },
+    } = this;
+    if (!Number.isInteger(timeout)) {
+      throw new Error('[Error] The option timeout should be of integer type.');
+    }
+    if (!(timeout > 0)) {
+      throw new Error('[Error] The option timeout should be a positive integer.');
+    }
   }
 
   setHasTimeout(hasTimeout) {
@@ -50,27 +69,42 @@ class ClientFetch {
         if (options !== undefined) {
           const { ownSignals, } = options;
           if (Array.isArray(ownSignals)) {
+            const {
+              options: {
+                timeout,
+              },
+            } = this;
             response = await fetch(url, {
               signal: AbortSignal.any([
-                AbortSignal.timeout(9000),
+                AbortSignal.timeout(timeout),
                 abortController.signal,
                 ...ownSignals,
               ]),
               ...options,
             });
           } else {
+            const {
+              options: {
+                timeout,
+              },
+            } = this;
             response = await fetch(url, {
               signal: AbortSignal.any([
-                AbortSignal.timeout(9000),
+                AbortSignal.timeout(timeout),
                 abortController.signal,
               ]),
               ...options,
             });
           }
         } else {
+            const {
+              options: {
+                timeout,
+              },
+            } = this;
           response = await fetch(url, {
             signal: AbortSignal.any([
-              AbortSignal.timeout(9000),
+              AbortSignal.timeout(timeout),
               abortController.signal,
             ]),
           });
@@ -107,8 +141,12 @@ class ClientFetch {
       } else {
         const { status, } = response;
         const { filters, } = this;
-        await filters[status](response);
-        throw new Error('[Error] Receive an exception from the server.');
+        const callback = filters[status];
+        if (typeof deal === 'function') {
+          await callback(response);
+        } else {
+          throw new Error('[Error] Receive an exception from the server.');
+        }
       }
     }
   }
