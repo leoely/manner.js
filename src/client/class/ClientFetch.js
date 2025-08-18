@@ -37,7 +37,7 @@ class ClientFetch {
       throw new Error('[Error] The parameter status code should be a positive integer type.');
     }
     if (typeof callback !== 'function') {
-      throw new Error('[Error] The parameter callback should be4 of function type.');
+      throw new Error('[Error] The parameter callback should be of function type.');
     }
     const { filters, } = this;
     if (filters[status] !== undefined) {
@@ -142,7 +142,7 @@ class ClientFetch {
         const { status, } = response;
         const { filters, } = this;
         const callback = filters[status];
-        if (typeof deal === 'function') {
+        if (typeof callback === 'function') {
           await callback(response);
         } else {
           throw new Error('[Error] Receive an exception from the server.');
