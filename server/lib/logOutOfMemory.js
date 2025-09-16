@@ -1,0 +1,1 @@
+Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=logOutOfMemory;var _appendToLog=_interopRequireDefault(require("./appendToLog"));function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}function logOutOfMemory(e,o){(0,_appendToLog.default)(e," || ████ ❗❗❗❗FREEMEN:"+o+" ████ & ████ REASON: Out fo memory ████ ||\n")}

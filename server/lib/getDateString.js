@@ -1,0 +1,1 @@
+function getDateString(e){return[(e=void 0===e?new Date:e).getFullYear(),e.getMonth()+1,e.getDate()].join("-")}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=getDateString;
