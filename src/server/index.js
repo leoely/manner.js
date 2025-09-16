@@ -12,6 +12,7 @@ export { default as wrapIpv6, } from '~/server/lib/wrapIpv6';
 export { default as errorHandle, } from '~/server/lib/errorHandle';
 export { default as discHndl, } from '~/server/lib/discHndl';
 export { default as appendToLog, } from '~/server/lib/appendToLog';
+export { default as addToLog, } from '~/server/lib/addToLog';
 export { default as getDateString, } from '~/server/lib/getDateString';
 export { default as getGTMNowString, } from '~/server/lib/getGTMNowString';
 export { default as checkLogPath, } from '~/server/lib/checkLogPath';
