@@ -13,15 +13,15 @@ class Prevents extends Tackles {
   }
 
   dealParams(threshold, interval) {
-    //if (Number.isInteger(threshold)) {
-      //throw new Error('[Error] The parameter threshold should be of integer type.');
-    //}
+    if (Number.isInteger(threshold)) {
+      throw new Error('[Error] The parameter threshold should be of integer type.');
+    }
     if (!(threshold > 0)) {
       throw new Error('[Error] The parameter threshold should be of positive integer type.');
     }
-    //if (!Number.isInteger(interval)) {
-      //throw new Error('[Error] The parameter interval should be of integer type.');
-    //}
+    if (!Number.isInteger(interval)) {
+      throw new Error('[Error] The parameter interval should be of integer type.');
+    }
     if (!(interval > 0)) {
       throw new Error('[Error] The parameter interval should be of positive integer type.');
     }

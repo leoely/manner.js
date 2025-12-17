@@ -9,7 +9,7 @@
     "run": "gulp build && node dist/index.js",
     "build": "gulp build && gulp copy",
     "clean": "rm -rf client server",
-    "test": "jest --detectOpenHandles"
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/cli": "^7.20.7",
