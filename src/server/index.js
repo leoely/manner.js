@@ -1,6 +1,7 @@
 export { default as MultiFetch, } from '~/server/class/MultiFetch';
 export { default as Blocks, } from '~/server/class/Blocks';
 export { default as Prevents, } from '~/server/class/Prevents';
+export { default as ByteArray, } from '~/server/class/ByteArray';
 export { default as readCookie, } from '~/server/lib/readCookie';
 export { default as formatHttpKey, } from '~/server/lib/formatHttpKey';
 export { default as formatHttpDate, } from '~/server/lib/formatHttpDate';
@@ -9,13 +10,9 @@ export { default as isIntranetIpv4Address, } from '~/server/lib/isIntranetIpv4Ad
 export { default as isIpv6Address, } from '~/server/lib/isIpv6Address';
 export { default as getOwnIpAddresses, } from '~/server/lib/getOwnIpAddresses';
 export { default as wrapIpv6, } from '~/server/lib/wrapIpv6';
-export { default as errorHandle, } from '~/server/lib/errorHandle';
-export { default as discHndl, } from '~/server/lib/discHndl';
 export { default as appendToLog, } from '~/server/lib/appendToLog';
 export { default as addToLog, } from '~/server/lib/addToLog';
 export { default as getDateString, } from '~/server/lib/getDateString';
 export { default as getGTMNowString, } from '~/server/lib/getGTMNowString';
 export { default as checkLogPath, } from '~/server/lib/checkLogPath';
 export { default as logOutOfMemory, } from '~/server/lib/logOutOfMemory';
-export * as byteArray from '~/server/lib/byteArray';
-export * as nonZeroByteArray from '~/server/lib/nonZeroByteArray';

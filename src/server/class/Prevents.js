@@ -13,7 +13,7 @@ class Prevents extends Tackles {
   }
 
   dealParams(threshold, interval) {
-    if (Number.isInteger(threshold)) {
+    if (!Number.isInteger(threshold)) {
       throw new Error('[Error] The parameter threshold should be of integer type.');
     }
     if (!(threshold > 0)) {
@@ -40,14 +40,14 @@ class Prevents extends Tackles {
     let ans = true;
     const prevent = ipRouter.gain(ip);
     if (prevent === undefined) {
-      ipRouter.attach(ip, 1);
+      ipRouter.attach(ip, 1n);
       const { interval, } = this;
       setTimeout(() => {
         super.cleanTackle(ip);
       }, interval);
     } else {
       let count = prevent;
-      count += 1;
+      count += 1n;
       ipRouter.revise(ip, count);
       const ifModifiedSince = req.headers['if-modified-since'];
       if (typeof ifModifiedSince === 'string') {

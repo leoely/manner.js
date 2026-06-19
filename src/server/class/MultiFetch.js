@@ -6,12 +6,21 @@ import { Ipv4Router, Ipv6Router, } from 'advising.js';
 
 class MultiFetch {
   constructor(bases, interval) {
-    this.index = -1;
     this.dealParams(bases, interval);
     this.bases = bases;
     if (interval !== undefined) {
       this.interval = interval;
     }
+    this.index = this.getRandomIndex();
+  }
+
+  getRandomIndex() {
+    const {
+      bases: {
+        length,
+      },
+    } = this;
+    return Math.ceil(length * Math.random());
   }
 
   dealParams(bases, interval) {
