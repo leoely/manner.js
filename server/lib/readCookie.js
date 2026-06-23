@@ -1,1 +1,0 @@
-function readCookie(e){let t={},i=("string"==typeof e&&e.split(";").forEach(e=>{var[e,o]=e.split("=");t[e.trim()]=o}),{});return Object.keys(t).forEach(e=>{var o,r=e.split("_");2===r.length&&([r,o]=r,void 0===i[r]&&(i[r]={}),i[r][o]=t[e])}),i}Object.defineProperty(exports,"__esModule",{value:!0}),exports.readCookie=readCookie;

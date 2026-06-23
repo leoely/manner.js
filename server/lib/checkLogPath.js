@@ -1,1 +1,0 @@
-Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=checkLogPath;var _fs=_interopRequireDefault(require("fs"));function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}function checkLogPath(e){_fs.default.existsSync(e)||_fs.default.mkdirSync(e,{recursive:!0})}

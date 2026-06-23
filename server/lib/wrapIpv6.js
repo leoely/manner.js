@@ -1,1 +1,0 @@
-function wrapIpv6(e){return"["+e+"]"}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=wrapIpv6;

@@ -9,7 +9,6 @@ export { default as parseHttpDate, } from '~/server/lib/parseHttpDate';
 export { default as isIntranetIpv4Address, } from '~/server/lib/isIntranetIpv4Address';
 export { default as isIpv6Address, } from '~/server/lib/isIpv6Address';
 export { default as getOwnIpAddresses, } from '~/server/lib/getOwnIpAddresses';
-export { default as wrapIpv6, } from '~/server/lib/wrapIpv6';
 export { default as appendToLog, } from '~/server/lib/appendToLog';
 export { default as addToLog, } from '~/server/lib/addToLog';
 export { default as getDateString, } from '~/server/lib/getDateString';
