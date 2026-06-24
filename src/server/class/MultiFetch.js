@@ -2,7 +2,6 @@ import https from 'https';
 import http from 'http';
 import net from 'net';
 import fetch from 'node-fetch';
-import { Ipv4Router, Ipv6Router, } from 'advising.js';
 
 class MultiFetch {
   constructor(bases, interval) {
