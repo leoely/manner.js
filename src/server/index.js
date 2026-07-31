@@ -13,3 +13,4 @@ export { default as getDateString, } from '~/server/lib/getDateString';
 export { default as getGTMNowString, } from '~/server/lib/getGTMNowString';
 export { default as checkLogPath, } from '~/server/lib/checkLogPath';
 export { default as logOutOfMemory, } from '~/server/lib/logOutOfMemory';
+export { default as insufficientDiskSpace, } from '~/server/lib/insufficientDiskSpace';
