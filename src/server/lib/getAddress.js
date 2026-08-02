@@ -1,6 +1,6 @@
 import net from 'net';
 
-export default function getIpAddress(ip, port) {
+export default function getAddress(ip, port) {
   if (net.isIPv6(ip)) {
     const ipv6 = ip;
     return '[' + ipv6 + ']:' + port;
