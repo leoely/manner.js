@@ -1,18 +1,18 @@
 import os from 'os';
+import net from 'net';
 import isIntranetIpv4Address from '~/server/lib/isIntranetIpv4Address';
-import isIpv6Address from '~/server/lib/isIpv6Address';
 
 export default function getOwnIpAddresses() {
-  const nets = os.networkInterfaces();
+  const networks = os.networkInterfaces();
   const ans = [];
-  Object.keys(nets).forEach((key) => {
-    const net = nets[key];
-    const { length, } = net;
+  Object.keys(networks).forEach((key) => {
+    const network = networks[key];
+    const { length, } = network;
     if (length >= 2) {
       let ipv4;
       let ipv6;
       for (let i = 0; i < length; i += 1) {
-        const ip = net[i];
+        const ip = network[i];
         const { internal, } = ip
         if (internal === true) {
           break;
@@ -21,7 +21,7 @@ export default function getOwnIpAddresses() {
           switch (family) {
             case 'IPv6': {
               const { address, } = ip;
-              if (isIpv6Address(address)) {
+              if (net.isIPv6(address)) {
                 ipv6 = address;
               }
               break;
