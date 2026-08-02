@@ -13,4 +13,4 @@ export { default as getGTMNowString, } from '~/server/lib/getGTMNowString';
 export { default as checkLogPath, } from '~/server/lib/checkLogPath';
 export { default as logOutOfMemory, } from '~/server/lib/logOutOfMemory';
 export { default as logInsufficientDiskSpace, } from '~/server/lib/logInsufficientDiskSpace';
-export { default as getIPAddress, } from '~/server/lib/getIPAddress';
+export { default as getAddress, } from '~/server/lib/getAddress';
