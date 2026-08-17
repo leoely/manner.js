@@ -14,3 +14,4 @@ export { default as checkLogPath, } from '~/server/lib/checkLogPath';
 export { default as logOutOfMemory, } from '~/server/lib/logOutOfMemory';
 export { default as logInsufficientDiskSpace, } from '~/server/lib/logInsufficientDiskSpace';
 export { default as getAddress, } from '~/server/lib/getAddress';
+export { default as logUncaughtException, } from '~/server/lib/logUncaughtException';
